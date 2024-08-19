@@ -1,23 +1,16 @@
 <template>
-  <div v-for="movie in movies" :key="movie.id" class="card">
-    <div class="card-image">
-      <img :src="movie.image" alt="">
-    </div>
-    <div class="card-description">
-      <div class="card-name">{{movie.title}}</div>
-      <div class="card-tags">
-        <span>tag1</span>
-        <span>tag2</span>
-        <span>tag3</span>
-      </div>
-    </div>
+  <div class="main">
+    <movie-card v-for="movie in movies" :key="movie.image" :title="movie.title" :image="movie.image"/>
   </div>
 </template>
 
 <script>
 import {routesPaths} from "@/consts.js";
+import CardImage from "@/components/CardImage.vue";
+import MovieCard from "@/UI/MovieCard.vue";
 
 export default {
+  components: {MovieCard, CardImage},
   mounted() {
     this.getMovies();
   },
@@ -37,6 +30,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.main {
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:40px;
+}
 </style>

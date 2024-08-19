@@ -22,166 +22,17 @@ time, mark, audio, video {
     box-sizing: border-box;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.header {
-    background-color: black;
-    padding: 40px 0 56px;
-}
-
 .container {
     max-width: 1796px;
     margin: auto;
     padding: 0 15px;
 }
 
-.header-wrapper {
-    display: flex;
-    align-items: center;
-}
-
-.nav{
-    display: flex;
-    flex-grow: 1;
-    justify-content: space-between;
-}
-
-.user {
-    display: flex;
-}
-
-.sidebar {
-    background-color: black;
-    width: 306px;
-}
-
-.main {
-    background-color: black;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap:40px;
-}
-
-.container2 {
-    display: flex;
-    flex-grow: 1;
-    width: 100%;
-}
-
-.card-image{
-    width: 266px;
-    height: 360px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.card-image img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.wrapper-content{
-    background-color: black;
-}
-
-.card{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 266px;
-    height: 433px;
-}
-
-.sidebar li{
-    padding-bottom: 40px;
-}
-
 body{
     font-family: "Exo 2", sans-serif;
     color: white;
-}
-
-.sidebar li a{
-    color: rgba(144, 158, 175, 1);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    line-height: 24px;
-}
-
-.fa-house{
-    font-weight: 400;
-}
-
-.card-name{
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.card-tags{
-    font-size: 16px;
-    font-weight: 500;
-    color: rgba(149, 161, 176, 1);
-}
-
-.search{
-    width: 1184px;
-    height: 56px;
-
-    background-color: rgba(50, 53, 55, 1);
-    border-radius: 10px;
-    border-color: rgba(50, 53, 55, 1);
-
-    color: rgba(255, 255, 255, 1);
-    font-family: "Exo 2", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-
-    box-sizing: border-box;
-    padding-left: 20px;
 }
 
 
-
-.user-avatar{
-    width: 56px;
-    height: 56px;
-    border-radius: 10px;
-    background-color: rgba(123, 97, 255, 1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.user-options{
-    background-color: black;
-    border-color: black;
-
-    color: white;
-    font-family: "Exo 2", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-
-    padding-left: 20px;
-}
-
-.user-initials{
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-}
-
-.logo{
-    width: 276px;
-}
-.wrapper{
-    background-color: black;
-}

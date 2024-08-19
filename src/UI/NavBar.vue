@@ -25,4 +25,13 @@ export default {
 </script>
 
 <style scoped>
+.nav{
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.user {
+  display: flex;
+}
 </style>

@@ -20,4 +20,8 @@ export default {
 </script>
 
 <style scoped>
+.sidebar{
+  width: 276px;
+  background-color: black;
+}
 </style>

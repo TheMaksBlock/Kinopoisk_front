@@ -25,4 +25,13 @@ export default {
 </script>
 
 <style scoped>
+.header {
+  background-color: black;
+  padding: 40px 0 56px;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+}
 </style>

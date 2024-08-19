@@ -25,6 +25,16 @@ const routes = createRouter({
             name: "settings",
             component: () => import('@/pages/homePage.vue')
         },
+        {
+            path: "/movies/movie",
+            name: "movie",
+            component: () => import('@/pages/moviePage.vue')
+        },
+        {
+            path: "/:pathMatch(.*)*",
+            name: "404",
+            component: () => import('@/pages/moviePage.vue')
+        }
     ]
 })
 

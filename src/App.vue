@@ -6,9 +6,7 @@
       <div class="container">
         <div class="container2">
           <side-bar/>
-          <div class="main">
             <router-view></router-view>
-          </div>
         </div>
       </div>
     </div>
@@ -28,5 +26,20 @@ export default {
 </script>
 
 <style>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+}
 
+.container2 {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.wrapper-content{
+  background-color: black;
+}
 </style>
