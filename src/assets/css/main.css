@@ -22,10 +22,32 @@ time, mark, audio, video {
     box-sizing: border-box;
 }
 
+
+
+a {
+    color: inherit; /* Наследовать цвет от родительского элемента */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
 .container {
     max-width: 1796px;
     margin: auto;
     padding: 0 15px;
+}
+
+:root {
+    --primary: rgba(123, 97, 255, 1);
+    --primary2: rgba(145, 124, 255, 1);
+    --secondary: rgba(128, 133, 139, 1);
+    --dark: rgba(36, 36, 38, 1);
+    --graphite: rgba(50, 53, 55, 1);
+    --black: rgba(0, 0, 0, 1);
+    --white: rgba(255, 255, 255, 1);
+    --green: rgba(0, 163, 64, 1);
+    --light: rgba(149, 161, 176, 1);
+
+    --semiBold: 600;
+    --medium: 500;
 }
 
 body{
@@ -35,4 +57,58 @@ body{
     font-weight: 600;
 }
 
+.primary{
+    color:var(--primary);
+}
 
+.bg-primary{
+    background-color: var(--primary);
+}
+
+.primary2{
+    color:var(--primary2);
+}
+
+.bg-primary2{
+    background-color: var(--primary2);
+}
+
+.secondary{
+    color: var(--secondary);
+}
+
+.bg-secondary{
+    background-color: var(--secondary);
+}
+
+.dark{
+    color: var(--dark);
+}
+
+.bg-dark{
+    background-color: var(--dark);
+}
+
+.graphite{
+    color: var(--graphite);
+}
+
+.bg-graphite{
+    background-color: var(--graphite);
+}
+
+.black{
+    color: var(--black);
+}
+
+.bg-black{
+    background-color: var(--black);
+}
+
+.white{
+    color: var(--white);
+}
+
+.bg-white{
+    background-color: var(--white);
+}

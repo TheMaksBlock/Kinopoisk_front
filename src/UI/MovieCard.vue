@@ -1,12 +1,13 @@
 <template>
   <div class="card">
-    <card-image :image-url="image"/>
+    <div class="rating">
+      <info-box :text="movie.rating"/>
+    </div>
+    <card-image :image-url="movie.image"/>
     <div class="card-description">
-      <div class="card-name">{{ title }}</div>
+      <div class="card-name">{{ movie.title }}</div>
       <div class="card-tags">
-        <ul>
-          <li v-for="tag in 3" :key="tag">tag{{tag}}</li>
-        </ul>
+        <tag-list :tags="genres"/>
       </div>
     </div>
   </div>
@@ -16,33 +17,32 @@
 import TextInput from "@/components/elements/TextInput.vue";
 import IconBox from "@/components/elements/IconBox.vue";
 import OptionSelector from "@/components/elements/OptionSelector.vue";
-import CardImage from "@/components/CardImage.vue";
+import CardImage from "@/components/elements/CardImage.vue";
+import TagList from "@/components/elements/TagList.vue";
+import InfoBox from "@/components/elements/InfoBox.vue";
 
 export default {
-  components: {CardImage, OptionSelector, IconBox, TextInput},
+  components: {InfoBox, TagList, CardImage, OptionSelector, IconBox, TextInput},
   name: "movie-card",
+  computed:{
+    genres(){
+      return this.movie? this.movie.genres.map(genre => genre.name) : [];
+    }
+  },
   data() {
     return {
-
     }
   },
   props:{
-    image:{
-      type: String,
+    movie:{
+      type: Object,
       required: true
     },
-    title:{
-      type: String,
-      required: true
-    }
   }
 }
 </script>
 
 <style scoped>
-.card-tags ul{
-  display: flex;
-}
 
 .card-name{
   font-size: 16px;
@@ -61,7 +61,14 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 
+  position: relative;
+
   width: 266px;
   height: 433px;
+}
+.rating{
+  position: absolute;
+  left: 20px;
+  top: 20px;
 }
 </style>

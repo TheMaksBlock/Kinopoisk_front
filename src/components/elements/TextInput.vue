@@ -7,26 +7,21 @@
 <script>
 export default {
   name: "text-input",
-  data() {
-    return {
-
-    }
-  }
 }
 </script>
 
 <style scoped>
-.search{
+.search {
   width: 1184px;
   height: 56px;
 
-  background-color: rgba(50, 53, 55, 1);
+  background-color: var(--graphite);
   border-radius: 10px;
-  border-color: rgba(50, 53, 55, 1);
+  border-color: var(--graphite);
 
-  color: rgba(255, 255, 255, 1);
+  color: white;
   font-family: "Exo 2", sans-serif;
-  font-weight: 500;
+  font-weight: var(--medium);
   font-size: 16px;
   line-height: 24px;
 

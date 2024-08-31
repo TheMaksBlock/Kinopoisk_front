@@ -7,11 +7,6 @@
 <script>
 export default {
   name: "side-bar-element",
-  data() {
-    return {
-
-    }
-  },
   props:{
     link: {
       type: String,
@@ -34,13 +29,13 @@ export default {
   padding-bottom: 40px;
 }
 .router-link-active{
-  color: rgba(123, 97, 255, 1)!important;
+  color: var(--primary)!important;
 }
 
 .sidebar li a{
-  color: rgba(144, 158, 175, 1);
+  color: var(--secondary);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: var(--semiBold);
   line-height: 24px;
 }
 </style>

@@ -7,8 +7,8 @@
 <script>
 export default {
   name: "card-image",
-  props:{
-    imageUrl:{
+  props: {
+    imageUrl: {
       type: String,
       required: true
     }
@@ -17,14 +17,14 @@ export default {
 </script>
 
 <style scoped>
-.card-image{
+.card-image {
   width: 266px;
   height: 360px;
   border-radius: 20px;
   overflow: hidden;
 }
 
-.card-image img{
+.card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;

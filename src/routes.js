@@ -26,7 +26,7 @@ const routes = createRouter({
             component: () => import('@/pages/homePage.vue')
         },
         {
-            path: "/movies/movie",
+            path: "/movies/:alias",
             name: "movie",
             component: () => import('@/pages/moviePage.vue')
         },

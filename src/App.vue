@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
     <the-header/>
-
     <div class="wrapper-content">
       <div class="container">
         <div class="container2">
@@ -10,9 +9,6 @@
         </div>
       </div>
     </div>
-    <footer>
-
-    </footer>
   </div>
 </template>
 
@@ -41,5 +37,9 @@ export default {
 
 .wrapper-content{
   background-color: black;
+}
+
+.wrapper{
+  padding-bottom: 64px;
 }
 </style>

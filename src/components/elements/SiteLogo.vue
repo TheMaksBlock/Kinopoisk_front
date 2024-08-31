@@ -7,16 +7,11 @@
 <script>
 export default {
   name: "site-logo",
-  data() {
-    return {
-
-    }
-  }
 }
 </script>
 
 <style scoped>
-.logo{
+.logo {
   width: 276px;
 }
 </style>

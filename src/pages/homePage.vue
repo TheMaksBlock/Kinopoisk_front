@@ -1,22 +1,31 @@
 <template>
-  <div class="main">
-    <movie-card v-for="movie in movies" :key="movie.image" :title="movie.title" :image="movie.image"/>
+  <div v-if="movies" class="main">
+    <router-link v-for="movie in movies" :key="movie.id" :to="{name:'movie',params:{alias:movie.alias}}">
+      <movie-card :movie="movie"/>
+    </router-link>
   </div>
+  <preloader v-else/>
 </template>
 
 <script>
 import {routesPaths} from "@/consts.js";
-import CardImage from "@/components/CardImage.vue";
+import CardImage from "@/components/elements/CardImage.vue";
 import MovieCard from "@/UI/MovieCard.vue";
+import Preloader from "@/components/elements/ThePreloader.vue";
 
 export default {
-  components: {MovieCard, CardImage},
+  computed: {
+    routesPaths() {
+      return routesPaths
+    }
+  },
+  components: {Preloader, MovieCard, CardImage},
   mounted() {
     this.getMovies();
   },
   data() {
     return {
-      movies: []
+      movies: null,
     }
   },
   methods: {
@@ -35,6 +44,7 @@ export default {
   background-color: black;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap:40px;
+  gap: 40px;
+
 }
 </style>
