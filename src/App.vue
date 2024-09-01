@@ -5,20 +5,17 @@
       <div class="container">
         <div class="container2">
           <side-bar/>
-            <router-view></router-view>
+          <router-view></router-view>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import TheHeader from "@/UI/TheHeader.vue";
 import SideBar from "@/UI/SideBar.vue";
 
-export default {
-  components: {SideBar, TheHeader},
-}
 </script>
 
 <style>
@@ -35,11 +32,11 @@ export default {
   width: 100%;
 }
 
-.wrapper-content{
+.wrapper-content {
   background-color: black;
 }
 
-.wrapper{
+.wrapper {
   padding-bottom: 64px;
 }
 </style>

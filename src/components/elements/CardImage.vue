@@ -4,16 +4,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "card-image",
-  props: {
-    imageUrl: {
-      type: String,
-      required: true
-    }
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  imageUrl: {
+    type: String,
+    required: true
   }
-}
+});
 </script>
 
 <style scoped>

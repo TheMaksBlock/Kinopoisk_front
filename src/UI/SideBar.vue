@@ -1,26 +1,15 @@
 <template>
   <div class="sidebar">
-    <side-bar-list/>
+    <SideBarList />
   </div>
 </template>
 
-<script>
-
+<script setup>
 import SideBarList from "@/components/elements/SideBarList.vue";
-
-export default {
-  name: "side-bar",
-  components: {SideBarList},
-  data() {
-    return {
-
-    }
-  }
-}
 </script>
 
 <style scoped>
-.sidebar{
+.sidebar {
   width: 276px;
   background-color: black;
 }

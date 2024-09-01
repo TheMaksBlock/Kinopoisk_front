@@ -13,7 +13,7 @@
     </div>
     <div class="movie-info">
       <div class="tags">
-        <tag-list :tags="genres"/>
+        <tag-list :tags="geners"/>
       </div>
       <div class="title">{{ movie.title }}</div>
       <div class="info">
@@ -67,51 +67,49 @@
   <preloader v-else/>
 </template>
 
-<script setup>
-import {ref, onMounted, computed} from 'vue';
-import { useRoute } from 'vue-router';
-import { routesPaths } from '@/consts.js';
-import CardImage from '@/components/elements/CardImage.vue';
-import MovieCard from '@/UI/MovieCard.vue';
-import TagList from '@/components/elements/TagList.vue';
-import Preloader from '@/components/elements/ThePreloader.vue';
-import MyButton from '@/components/elements/MyButton.vue';
-import InfoBox from '@/components/elements/InfoBox.vue';
-import axios from "axios";
+<script>
 
+import {routesPaths} from "@/consts.js";
+import CardImage from "@/components/elements/CardImage.vue";
+import MovieCard from "@/UI/MovieCard.vue";
+import TagList from "@/components/elements/TagList.vue";
+import Preloader from "@/components/elements/ThePreloader.vue";
+import MyButton from "@/components/elements/MyButton.vue";
+import InfoBox from "@/components/elements/InfoBox.vue";
 
-const route = useRoute();
-
-const movie = ref(null);
-const recommendedMovies = ref(null);
-
-const genres = computed(() => {
-  return movie.value ? movie.value.genres.map(genre => genre.name) : [];
-});
-
-const getMovie = async (alias) => {
-  try {
-    const response = await axios.get(routesPaths.movie + alias);
-    movie.value = response.data.data;
-  } catch (error) {
-    console.error('Error fetching movie:', error);
+export default {
+  components: {InfoBox, MyButton, Preloader, TagList, MovieCard, CardImage},
+  computed: {
+    geners() {
+      return this.movie ? this.movie.genres.map(genre => genre.name) : [];
+    }
+  },
+  mounted() {
+    this.getMovie(this.$route.params.alias);
+    this.getRecommended(this.$route.params.alias);
+  },
+  data() {
+    return {
+      movie: null,
+      recommendedMovies: null,
+    }
+  },
+  methods: {
+    getMovie(alias) {
+      this.axios.get(routesPaths.movie + alias)
+          .then(res => {
+            this.movie = res.data.data;
+            console.log(this.movie);
+          })
+    },
+    getRecommended(alias) {
+      this.axios.get(routesPaths.recommendedFilms + alias)
+          .then(res => {
+            this.recommendedMovies = res.data.data;
+          })
+    }
   }
-};
-
-const getRecommended = async (alias) => {
-  try {
-    const response = await axios.get(routesPaths.recommendedFilms + alias);
-    recommendedMovies.value = response.data.data;
-  } catch (error) {
-    console.error('Error fetching recommended movies:', error);
-  }
-};
-
-onMounted(() => {
-  const alias = route.params.alias;
-  getMovie(alias);
-  getRecommended(alias);
-});
+}
 </script>
 
 <style scoped>
@@ -144,6 +142,7 @@ onMounted(() => {
   display: flex;
   margin-top: 24px;
 }
+
 
 .description {
   font-weight: var(--medium);

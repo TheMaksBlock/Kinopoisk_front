@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <input class="search" placeholder="Search">
+    <input class="search" @input="$emit='searchInput'" placeholder="Search">
   </div>
 </template>
 

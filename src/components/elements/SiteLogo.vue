@@ -1,13 +1,10 @@
 <template>
   <div class="logo">
-    <img src="@/assets/img/icons/Pixema.png" alt="">
+    <img src="@/assets/img/icons/Pixema.png" alt="Site Logo">
   </div>
 </template>
 
-<script>
-export default {
-  name: "site-logo",
-}
+<script setup>
 </script>
 
 <style scoped>

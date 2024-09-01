@@ -1,13 +1,18 @@
 <template>
   <div class="user-avatar">
-    <span class="user-initials">ММ</span>
+    <span class="user-initials">{{ initials }}</span>
   </div>
 </template>
 
-<script>
-export default {
-  name: "icon-box",
-}
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  initials: {
+    type: String,
+    default: 'ММ'
+  }
+});
 </script>
 
 <style scoped>

@@ -1,42 +1,37 @@
 <template>
   <div v-if="movies" class="main">
-    <router-link v-for="movie in movies" :key="movie.id" :to="{name:'movie',params:{alias:movie.alias}}">
-      <movie-card :movie="movie"/>
+    <router-link
+        v-for="movie in movies"
+        :key="movie.id"
+        :to="{ name: 'movie', params: { alias: movie.alias } }"
+    >
+      <MovieCard :movie="movie" />
     </router-link>
   </div>
-  <preloader v-else/>
+  <Preloader v-else />
 </template>
 
-<script>
-import {routesPaths} from "@/consts.js";
-import CardImage from "@/components/elements/CardImage.vue";
-import MovieCard from "@/UI/MovieCard.vue";
-import Preloader from "@/components/elements/ThePreloader.vue";
+<script setup>
+import { ref, onMounted, getCurrentInstance } from 'vue';
+import { routesPaths } from '@/consts.js';
+import MovieCard from '@/UI/MovieCard.vue';
+import Preloader from '@/components/elements/ThePreloader.vue';
+import axios from "axios";
 
-export default {
-  computed: {
-    routesPaths() {
-      return routesPaths
-    }
-  },
-  components: {Preloader, MovieCard, CardImage},
-  mounted() {
-    this.getMovies();
-  },
-  data() {
-    return {
-      movies: null,
-    }
-  },
-  methods: {
-    getMovies() {
-      this.axios.get(routesPaths.movies)
-          .then(res => {
-            this.movies = res.data.data;
-          })
-    }
+const movies = ref(null);
+
+const getMovies = async () => {
+  try {
+    const response = await axios.get(routesPaths.movies);
+    movies.value = response.data.data;
+  } catch (error) {
+    console.error('Error fetching movies:', error);
   }
-}
+};
+
+onMounted(() => {
+  getMovies();
+});
 </script>
 
 <style scoped>
@@ -45,6 +40,5 @@ export default {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
-
 }
 </style>

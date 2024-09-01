@@ -4,16 +4,15 @@
   </ul>
 </template>
 
-<script>
-export default {
-  name: "tag-list",
-  props: {
-    tags: {
-      type: Array,
-      required: true
-    }
+<script setup>
+import { defineProps } from 'vue'
+
+const props = defineProps({
+  tags: {
+    type: Array,
+    required: true
   }
-}
+})
 </script>
 
 <style scoped>
@@ -30,5 +29,4 @@ export default {
   content: "";
   margin: 0;
 }
-
 </style>

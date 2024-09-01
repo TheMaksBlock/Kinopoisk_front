@@ -4,10 +4,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "preloader",
-}
+<script setup>
+const name = 'preloader'
 </script>
 
 <style scoped>
