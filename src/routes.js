@@ -13,7 +13,7 @@ const routes = createRouter({
         {
             path: "/trends",
             name: "trends",
-            component: () => import('@/pages/homePage.vue')
+            component: () => import('@/pages/trendsPage.vue')
         },
         {
             path: "/favorites",

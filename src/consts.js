@@ -4,5 +4,6 @@ export const routesPaths = {
     "movies" : (apiURL + "movies"),
     "movie" : (apiURL + "movies/"),
     "recommendedFilms":  (apiURL + "recommended/"),
-    "search" : (apiURL + "search?s=")
+    "search" : (apiURL + "search?s="),
+    "trends" : (apiURL + "trends")
 }
