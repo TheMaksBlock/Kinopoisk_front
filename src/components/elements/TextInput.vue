@@ -1,13 +1,25 @@
 <template>
   <div class="">
-    <input class="search" @input="$emit='searchInput'" placeholder="Search">
+    <input class="search" placeholder="Search"
+           v-model.trim="inputValue"
+           @keydown.enter="handleEnter"
+           @input="handleInput" >
   </div>
 </template>
 
-<script>
-export default {
-  name: "text-input",
-}
+<script setup>
+  import {ref} from "vue";
+
+  const emit = defineEmits(["input", "enter"])
+  const inputValue = ref("");
+  const handleEnter = () => {
+    emit('enter');
+  }
+
+  const handleInput = () => {
+    emit('input', inputValue)
+  }
+
 </script>
 
 <style scoped>

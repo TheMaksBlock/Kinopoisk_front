@@ -31,6 +31,11 @@ const routes = createRouter({
             component: () => import('@/pages/moviePage.vue')
         },
         {
+            path: "/search",
+            name: "search",
+            component: () => import('@/pages/searchPage.vue')
+        },
+        {
             path: "/:pathMatch(.*)*",
             name: "404",
             component: () => import('@/pages/moviePage.vue')
